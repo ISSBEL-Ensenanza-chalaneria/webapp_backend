@@ -11,6 +11,8 @@ import com.wordpress.issbelensenanzachalaneria.webapp.core.shared_kernel.respons
 import com.wordpress.issbelensenanzachalaneria.webapp.core.shared_kernel.response.HttpResponse;
 import com.wordpress.issbelensenanzachalaneria.webapp.core.shared_kernel.utils.ResponseUtil;
 
+import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/")
-    public ResponseEntity<HttpResponse> register(@RequestBody UserDto user) {
+    public ResponseEntity<HttpResponse> register(@Valid @RequestBody UserDto user) {
         ApiResponse response = userCrudUseCases.register(user);
         if (response.getControlFlow() == -1) {
             return ResponseUtil.httpResponse("Usuario ya existe en la base de datos", HttpStatus.CONFLICT);

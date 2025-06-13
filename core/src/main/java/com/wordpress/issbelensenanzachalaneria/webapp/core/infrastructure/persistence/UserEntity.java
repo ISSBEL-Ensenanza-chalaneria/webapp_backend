@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.phones.Phone;
 import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.users.IDType;
 import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.users.User;
 
@@ -36,7 +35,7 @@ public class UserEntity {
     private String email;
 
     @OneToMany
-    private Set<Phone> phones = new HashSet<>();
+    private Set<PhoneEntity> phones = new HashSet<>();
 
     @CreationTimestamp
     @Column(name = "user_created_at")
@@ -51,7 +50,7 @@ public class UserEntity {
         entity.idType = user.getIdType();
         entity.name = user.getName();
         entity.email = user.getEmail();
-        entity.phones = user.getPhones();
+        //entity.phones = user.getPhones();
         entity.createdAt = LocalDateTime.now();
         entity.updatedAt = LocalDateTime.now();
 
@@ -64,7 +63,7 @@ public class UserEntity {
         user.setIdType(this.idType);
         user.setName(this.name);
         user.setEmail(this.email);
-        user.setPhones(this.phones);
+        //user.setPhones(this.phones);
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
 

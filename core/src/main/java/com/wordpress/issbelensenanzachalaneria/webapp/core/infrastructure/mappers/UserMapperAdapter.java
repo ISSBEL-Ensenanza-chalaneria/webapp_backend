@@ -1,9 +1,12 @@
 package com.wordpress.issbelensenanzachalaneria.webapp.core.infrastructure.mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.users.User;
 import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.users.UserDto;
 import com.wordpress.issbelensenanzachalaneria.webapp.core.domain.users.UserMapper;
 
+@Component
 public class UserMapperAdapter implements UserMapper {
     
     private final UserMapstructMapper mapper;
