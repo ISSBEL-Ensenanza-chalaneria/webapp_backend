@@ -16,6 +16,8 @@ RUN ./mvnw dependency:go-offline
 # Copy the source
 COPY src ./src
 
+RUN ./mvnw clean compile -DskipTests
+
 # Compile project
 RUN ./mvnw clean package -DskipTests
 
