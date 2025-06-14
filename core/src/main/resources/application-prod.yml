@@ -1,12 +1,12 @@
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: prod
   datasource:
     url:
     username:
     password:
   jpa:
     hibernate:
-      ddl-auto: create-drop
-    show-sql: true
+      ddl-auto: update
+    show-sql: false
