@@ -33,7 +33,7 @@ public class Securityconfig {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:3000", ""));
+        corsConfiguration.setAllowedOrigins(List.of("", ""));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin",
                 "Content-Type",
                 "Accept", "Jwt-Token", "Authorization", "Origin", "Accept", "X-Requested-With",
