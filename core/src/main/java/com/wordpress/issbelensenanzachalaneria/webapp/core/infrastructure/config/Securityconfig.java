@@ -18,13 +18,15 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 public class Securityconfig {
     private static final String[] PUBLIC_URL = {
-        "/api/users/"
+        "/api/users/",
+        "/api/users",
+        "/api/users/**"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()).cors(Customizer.withDefaults());
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.authorizeHttpRequests(request -> request.requestMatchers(PUBLIC_URL).permitAll());
+        http.authorizeHttpRequests(request -> request.requestMatchers(PUBLIC_URL).permitAll().anyRequest().authenticated());
         return http.build();
     }
 
@@ -33,7 +35,7 @@ public class Securityconfig {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(List.of("", ""));
+        corsConfiguration.setAllowedOrigins(List.of("http://localhost:3000", "https://issbel-ensenanza-chalaneria.github.io/web_app/"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin",
                 "Content-Type",
                 "Accept", "Jwt-Token", "Authorization", "Origin", "Accept", "X-Requested-With",
