@@ -15,7 +15,6 @@ import lombok.Data;
 public class UserDto {
     @Min(value = 0, message = "El número de identificación no puede ser menor a 0")
     Long id;
-    @NotEmpty(message = "Selecciona un tipo de identificación")
     IDType idType;
     @NotEmpty(message = "El campo nombre no puede estar vacío")
     @Size(min = 3, max = 250, message = "El nombre debe tener al menos 3 caracteres y menos de 250")
